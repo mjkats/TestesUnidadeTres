@@ -163,7 +163,6 @@ public class PrincipalPage {
 				textField_3.setText("");
 				textField_4.setText("");
 				textField_5.setText("");
-				// teste...
 			}
 		});
 		

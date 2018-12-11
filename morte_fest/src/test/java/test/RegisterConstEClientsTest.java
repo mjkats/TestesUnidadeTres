@@ -53,6 +53,7 @@ public class RegisterConstEClientsTest {
 		frame.textBox("textFieldResponsavel").setText("Marcos Pontes");
 		frame.textBox("txtFieldAnotacoes").setText("Metade de 2020");
 		frame.button("btnSalvar").click();
+		frame.label("lblOk").requireText("Ok!");
 	}
 	
 	public void missingInfo(FrameFixture frame) throws InterruptedException {

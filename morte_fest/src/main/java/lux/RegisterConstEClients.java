@@ -106,6 +106,12 @@ public class RegisterConstEClients {
 		lblCampoVazio.setBounds(29, 368, 98, 31);
 		frame.getContentPane().add(lblCampoVazio);
 		
+		final JLabel lblOk = new JLabel("");
+		lblOk.setBounds(20, 272, 46, 14);
+		frame.getContentPane().add(lblOk);
+		lblOk.setName("lblOk");
+		
+		
 		btnSalvar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -115,13 +121,18 @@ public class RegisterConstEClients {
 					lblCampoVazio.setText("Campo vazio!");
 					lblCampoVazio.setEnabled(true);
 			}
-		}
+				else {
+					lblOk.setText("Ok!");
+				}
+			}
+			
 		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setName("btnCancelar");
 		btnCancelar.setBounds(284, 370, 97, 25);
 		frame.getContentPane().add(btnCancelar);
+		
 		
 		
 		btnCancelar.addActionListener(new ActionListener() {

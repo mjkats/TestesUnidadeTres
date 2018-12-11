@@ -36,9 +36,9 @@ public class PrincipalPageTest {
 		pg = new PrincipalPage();
 		frame = new FrameFixture(pg.ReturnFrame());
 		
-		cancelaOrcamento(frame);
 		adicionaOrcamento(frame);
 		missingInfo(frame);
+		cancelaOrcamento(frame);
 	}
 
 	public void adicionaOrcamento(FrameFixture frame) throws InterruptedException {
@@ -48,32 +48,23 @@ public class PrincipalPageTest {
 		frame.textBox("textFrete").setText("CIF");
 		frame.textBox("textObs").setText("Para ser feito no segundo turno de 2019");
 		frame.textBox("textCodigo").setText("FSB-02");
-		//frame.button("btnAdicionarProduto").click();
-		//frame.table("table").set;
 		frame.button("btnSalvar").click();
 	}
 	
 	public void cancelaOrcamento(FrameFixture frame) throws InterruptedException {
-		frame.textBox("textNome").setText("Michel Jean");
-		frame.textBox("textObra").setText("Instituo Metropole Digital");
-		frame.textBox("textPagamento").setText("CD50");
-		frame.textBox("textFrete").setText("CIF");
-		frame.textBox("textObs").setText("Para ser feito no segundo turno de 2019");
-		frame.textBox("textCodigo").setText("FSB-02");
-		//frame.button("btnAdicionarProduto").click();
-		//frame.table("table").set;
+
 		frame.button("btnCancelar").click();
+		frame.textBox("textNome").requireText("");
+		frame.textBox("textObra").requireText("");
+		frame.textBox("textPagamento").requireText("");
+		frame.textBox("textFrete").requireText("");
+		frame.textBox("textObs").requireText("");
+		frame.textBox("textCodigo").requireText("");
 	}
 	
 	public void missingInfo(FrameFixture frame) throws InterruptedException {
-		frame.textBox("textNome").setText("Michel Jean");
-		frame.textBox("textObra").setText("Instituo Metropole Digital");
 		frame.textBox("textPagamento").setText("");
-		frame.textBox("textFrete").setText("CIF");
-		frame.textBox("textObs").setText("Para ser feito no segundo turno de 2019");
 		frame.textBox("textCodigo").setText("FSB-02");
-		//frame.button("btnAdicionarProduto").click();
-		//frame.table("table").set;
 		frame.button("btnSalvar").click();
 	}
 }
