@@ -65,10 +65,11 @@ public class RegisterProductPage {
 		frame.getContentPane().add(btnSalvar);
 		
 		final JLabel lblCampoVazio = new JLabel("");
+		lblCampoVazio.setBackground(Color.RED);
 		lblCampoVazio.setEnabled(false);
 		lblCampoVazio.setForeground(Color.RED);
 		lblCampoVazio.setBounds(144, 294, 101, 16);
-		lblCampoVazio.setText("lblCampoVazio");
+		lblCampoVazio.setName("lblCampoVazio");
 		frame.getContentPane().add(lblCampoVazio);
 
 		final JLabel labelok = new JLabel("");
@@ -78,9 +79,10 @@ public class RegisterProductPage {
 		frame.getContentPane().add(labelok);
 
 		final JLabel formatValorlabel = new JLabel("");
+		formatValorlabel.setForeground(Color.RED);
 		formatValorlabel.setEnabled(false);
 		formatValorlabel.setBackground(Color.RED);
-		formatValorlabel.setBounds(322, 247, 46, 14);
+		formatValorlabel.setBounds(291, 247, 192, 15);
 		formatValorlabel.setName("formatValorlabel");
 		frame.getContentPane().add(formatValorlabel);
 		

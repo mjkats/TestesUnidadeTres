@@ -103,6 +103,7 @@ public class PrincipalPage {
 		btnCancelar.setBounds(482, 571, 97, 25);
 		frame.getContentPane().add(btnCancelar);
 		
+		
 		textField_5 = new JTextField();
 		textField_5.setName("textCodigo");
 		textField_5.setBounds(154, 153, 90, 22);
@@ -152,6 +153,19 @@ public class PrincipalPage {
 		});
 		btnAdicionar.setBounds(261, 152, 139, 22);
 		frame.getContentPane().add(btnAdicionar);
+		
+		btnCancelar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
+				textField_4.setText("");
+				textField_5.setText("");
+				// teste...
+			}
+		});
 		
 		
 	}

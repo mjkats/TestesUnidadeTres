@@ -38,6 +38,8 @@ public class RegisterProductPageTest {
 		regprod = new RegisterProductPage();
 		frame = new FrameFixture(regprod.ReturnFrame());	
 		CorrectProduct(frame);
+		IncorrectProduct(frame);
+		MissingProducts(frame);
 	}
 	
 	public void CorrectProduct(FrameFixture frame2) {
@@ -46,6 +48,20 @@ public class RegisterProductPageTest {
 		frame2.textBox("textFieldValor").setText("10");
 		frame2.button("btnSalvar").click();
 		frame2.label("labelok").requireText("Ok!");
-
+		frame2.label("lblCampoVazio").requireText("");
+		frame2.label("formatValorlabel").requireText("");
 	}
+	
+	public void IncorrectProduct(FrameFixture frame2) {
+		frame2.textBox("textFieldValor").setText("dez");
+		frame2.button("btnSalvar").click();
+		frame2.label("formatValorlabel").requireText("Digite valor no tipo float!");
+	}
+	
+	public void MissingProducts(FrameFixture frame2) {
+		frame2.textBox("textFieldValor").setText("");
+		frame2.button("btnSalvar").click();
+		frame2.label("lblCampoVazio").requireText("Campo vazio!");
+	}
+	
 }
