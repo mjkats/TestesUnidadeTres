@@ -4,7 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class RegisterConstEClients {
 	private JFrame frame;
@@ -13,7 +17,8 @@ public class RegisterConstEClients {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField txtTextanotacoes;
+	private final JLabel lblCampoVazio = new JLabel("");
 	
 	public RegisterConstEClients() {
 		frame = new JFrame();
@@ -38,67 +43,102 @@ public class RegisterConstEClients {
 		lblPrioridade.setBounds(91, 271, 73, 16);
 		frame.getContentPane().add(lblPrioridade);
 		
-		textField = new JTextField();
-		textField.setName("textEmpresa");
-		textField.setBounds(162, 79, 304, 28);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		final JTextField textFieldEmpresa = new JTextField();
+		textFieldEmpresa.setName("textFieldEmpresa");
+		textFieldEmpresa.setBounds(162, 79, 304, 28);
+		frame.getContentPane().add(textFieldEmpresa);
+		textFieldEmpresa.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setName("textObra");
-		textField_1.setBounds(143, 124, 220, 28);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		final JTextField textFieldObra = new JTextField();
+		textFieldObra.setName("textFieldObra");
+		textFieldObra.setBounds(143, 124, 220, 28);
+		frame.getContentPane().add(textFieldObra);
+		textFieldObra.setColumns(10);
+		
+		final JTextField textFieldLocal = new JTextField();
+		textFieldLocal.setName("textFieldLocal");
+		textFieldLocal.setBounds(189, 214, 292, 28);
+		frame.getContentPane().add(textFieldLocal);
+		textFieldLocal.setColumns(10);
+		
+		final JTextField textFieldPrioridade =   new JTextField();
+		textFieldPrioridade.setName("textFieldPrioridade");
+		textFieldPrioridade.setBounds(176, 265, 220, 28);
+		frame.getContentPane().add(textFieldPrioridade);
+		textFieldPrioridade.setColumns(10);
 		
 		JLabel lblCadastroDeObras = new JLabel("Cadastro de Obras");
 		lblCadastroDeObras.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		lblCadastroDeObras.setBounds(177, 13, 304, 40);
 		frame.getContentPane().add(lblCadastroDeObras);
 		
-		textField_2 = new JTextField();
-		textField_2.setName("textLocal");
-		textField_2.setColumns(10);
-		textField_2.setBounds(189, 214, 292, 28);
-		frame.getContentPane().add(textField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setName("textPrioridade");
-		textField_3.setColumns(10);
-		textField_3.setBounds(176, 265, 220, 28);
-		frame.getContentPane().add(textField_3);
 		
 		JLabel lblResponsvel = new JLabel("Respons\u00E1vel");
 		lblResponsvel.setBounds(74, 177, 76, 16);
 		frame.getContentPane().add(lblResponsvel);
 		
-		textField_4 = new JTextField();
-		textField_4.setName("textResponsavel");
-		textField_4.setColumns(10);
-		textField_4.setBounds(177, 165, 220, 28);
-		frame.getContentPane().add(textField_4);
+		final JTextField textFieldResponsavel = new JTextField();
+		textFieldResponsavel.setName("textFieldResponsavel");
+		textFieldResponsavel.setColumns(10);
+		textFieldResponsavel.setBounds(177, 165, 220, 28);
+		frame.getContentPane().add(textFieldResponsavel);
 		
-		textField_5 = new JTextField();
-		textField_3.setName("textAnotacoes");
-		textField_5.setBounds(91, 310, 410, 47);
-		frame.getContentPane().add(textField_5);
-		textField_5.setColumns(10);
+		final JTextField txtFieldAnotacoes = new JTextField();
+		txtFieldAnotacoes.setName("txtFieldAnotacoes");
+		txtFieldAnotacoes.setBounds(91, 310, 410, 47);
+		frame.getContentPane().add(txtFieldAnotacoes);
+		txtFieldAnotacoes.setColumns(10);
 		
 		JLabel lblAnotaes = new JLabel("Anota\u00E7\u00F5es");
 		lblAnotaes.setBounds(12, 317, 67, 32);
 		frame.getContentPane().add(lblAnotaes);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setText("btnSalvar");
+		btnSalvar.setName("btnSalvar");
 		btnSalvar.setBounds(137, 370, 97, 25);
 		frame.getContentPane().add(btnSalvar);
 		
+		
+		lblCampoVazio.setEnabled(false);
+		lblCampoVazio.setName("lblCampoVazio");
+		lblCampoVazio.setForeground(Color.RED);
+		lblCampoVazio.setBounds(29, 368, 98, 31);
+		frame.getContentPane().add(lblCampoVazio);
+		
+		btnSalvar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				if(textFieldEmpresa.getText().equals("") || textFieldLocal.getText().equals("") ||
+					textFieldObra.getText().equals("") || textFieldPrioridade.getText().equals("") ||
+					textFieldResponsavel.getText().equals("") || txtFieldAnotacoes.getText().equals("")) {
+					lblCampoVazio.setText("Campo vazio!");
+					lblCampoVazio.setEnabled(true);
+			}
+		}
+		});
+		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setText("btnCancelar");
+		btnCancelar.setName("btnCancelar");
 		btnCancelar.setBounds(284, 370, 97, 25);
 		frame.getContentPane().add(btnCancelar);
+		
+		
+		btnCancelar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				textFieldEmpresa.setText("");
+				textFieldLocal.setText("");
+				textFieldObra.setText("");
+				textFieldPrioridade.setText("");
+				textFieldResponsavel.setText("");
+				txtFieldAnotacoes.setText("");
+				
+			}
+		});
 	}
 	
 	public JFrame returnFrame() {
-		return frame;
+		return this.frame;
 	}
 }

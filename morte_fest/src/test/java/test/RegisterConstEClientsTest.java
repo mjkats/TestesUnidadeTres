@@ -36,32 +36,33 @@ public class RegisterConstEClientsTest {
 	}
 	
 	public void cancel(FrameFixture frame) throws InterruptedException {
-		frame.textBox("textEmpresa").setText("Nasa");
-		frame.textBox("textObra").setText("obra");
-		frame.textBox("textLocal").setText("Natal");
-		frame.textBox("textPrioridade").setText("alta");
-		frame.textBox("textResponsavel").setText("Marcos Pontes");
-		frame.textBox("textAnotacoes").setText("Metade de 2020");
 		frame.button("btnCancelar").click();
+		frame.textBox("textFieldEmpresa").requireText("");
+		frame.textBox("textFieldObra").requireText("");
+		frame.textBox("textFieldLocal").requireText("");
+		frame.textBox("textFieldPrioridade").requireText("");
+		frame.textBox("textFieldResponsavel").requireText("");
+		frame.textBox("txtFieldAnotacoes").requireText("");
 	}
 	
 	public void register(FrameFixture frame) throws InterruptedException {
-		frame.textBox("textEmpresa").setText("Nasa");
-		frame.textBox("textObra").setText("obra");
-		frame.textBox("textLocal").setText("Natal");
-		frame.textBox("textPrioridade").setText("alta");
-		frame.textBox("textResponsavel").setText("Marcos Pontes");
-		frame.textBox("textAnotacoes").setText("Metade de 2020");
+		frame.textBox("textFieldEmpresa").setText("Nasa");
+		frame.textBox("textFieldObra").setText("obra");
+		frame.textBox("textFieldLocal").setText("Natal");
+		frame.textBox("textFieldPrioridade").setText("alta");
+		frame.textBox("textFieldResponsavel").setText("Marcos Pontes");
+		frame.textBox("txtFieldAnotacoes").setText("Metade de 2020");
 		frame.button("btnSalvar").click();
 	}
 	
 	public void missingInfo(FrameFixture frame) throws InterruptedException {
-		frame.textBox("textEmpresa").setText("");
-		frame.textBox("textObra").setText("obra");
-		frame.textBox("textLocal").setText("Natal");
-		frame.textBox("textPrioridade").setText("alta");
-		frame.textBox("textResponsavel").setText("Marcos Pontes");
-		frame.textBox("textAnotacoes").setText("Metade de 2020");
+		frame.textBox("textFieldEmpresa").setText("");
+		frame.textBox("textFieldObra").setText("obra");
+		frame.textBox("textFieldLocal").setText("Natal");
+		frame.textBox("textFieldPrioridade").setText("alta");
+		frame.textBox("textFieldResponsavel").setText("Marcos Pontes");
+		frame.textBox("txtFieldAnotacoes").setText("Metade de 2020");
 		frame.button("btnSalvar").click();
+		frame.label("lblCampoVazio").requireText("Campo vazio!");
 	}
 }

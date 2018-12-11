@@ -220,6 +220,13 @@ public class PrincipalPage {
 		
 		JMenuItem FileItem2 = new JMenuItem("Cadastrar");
 		file2.add(FileItem2);
+		FileItem2.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				RegisterProductPage regprod = new RegisterProductPage();
+				
+			}
+		});
 		
 		JMenuItem FileItem2_2 = new JMenuItem("Visualizar");
 		file2.add(FileItem2_2);
